@@ -1,23 +1,25 @@
-
-def triangulo(lado1,lado2,lado3):
+# -*- coding: utf-8 -*-
+def triangulo(a,b,c):
     value = None
-    if lado1 > 99 or lado1 < 0 or lado2 >99 or lado2 < 0 or lado3>99 or lado3 <0:
+    if type(a) == int and type(b) == int and type(c) == int and a in range(0,99) and b in range(0,99) and c in range(0,99):
+        if c >= a+b  or b >= a+c  or  a >= b+c:
+            if c <= a-b  or b <= a-c or a <= b-c:
+                value = 4
+        elif a == b and b == c:
+            value = 1
+        elif a != b and b != c and a != c:
+            value = 3
+        else:
+            value = 2
+    else:
         value = 0
-    elif lado3 >= lado1+lado2  or lado2 >= lado1+lado3  or  lado1 >= lado2+lado3:
-        if lado3 <= lado1-lado2  or lado2 <= lado1-lado3 or lado1 <= lado2-lado3:
-            value = 4
-    elif lado1 == lado2 and lado2 == lado3:
-         value = 1
-    elif lado1 == lado2 and lado2 != lado3 or lado1 == lado3 and lado1 != lado2 or lado2 == lado3 and lado1 != lado3:
-        value = 2
-    elif lado1 != lado2 and lado2 != lado3 and lado1 != lado3:
-        value = 3
+                   
 
     return value        
     
         
 
-print(triangulo(10,10,10))
+print(triangulo(20,20,20))
 
     
 
